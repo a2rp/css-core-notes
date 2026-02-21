@@ -7,6 +7,7 @@ export const Styled = {
         /* padding: 60px 20px; */
         display: flex;
         justify-content: center;
+        margin-bottom: 50px;
     `,
 
     Content: styled.div`

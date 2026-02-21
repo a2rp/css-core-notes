@@ -38,64 +38,64 @@ const App = () => {
 
                     <AboutCss />
 
-                    <h1 className="category">CSS fundamentals</h1>
+                    {/* <h1 className="category">CSS fundamentals</h1> */}
                     <CssFundamentals />
 
-                    <h1 className="category">Ways to Apply css</h1>
+                    {/* <h1 className="category">Ways to Apply css</h1> */}
                     <WaysToApplyCss />
 
-                    <h1 className="category">Selectors deep dive</h1>
+                    {/* <h1 className="category">Selectors deep dive</h1> */}
                     <SelectorsDeepDive />
 
-                    <h1 className="category">Box model</h1>
+                    {/* <h1 className="category">Box model</h1> */}
                     <BoxModel />
 
-                    <h1 className="category">Units and values</h1>
+                    {/* <h1 className="category">Units and values</h1> */}
                     <UnitsAndValues />
 
-                    <h1 className="category">Colors and backgrounds</h1>
+                    {/* <h1 className="category">Colors and backgrounds</h1> */}
                     <ColorsAndBackgrounds />
 
-                    <h1 className="category">Typography</h1>
+                    {/* <h1 className="category">Typography</h1> */}
                     <Typography />
 
-                    <h1 className="category">Display and visibility</h1>
+                    {/* <h1 className="category">Display and visibility</h1> */}
                     <DisplayAndVisibility />
 
-                    <h1 className="category">Positioning</h1>
+                    {/* <h1 className="category">Positioning</h1> */}
                     <Positioning />
 
-                    <h1 className="category">Flexbox</h1>
+                    {/* <h1 className="category">Flexbox</h1> */}
                     <Flexbox />
 
-                    <h1 className="category">CSS grid</h1>
+                    {/* <h1 className="category">CSS grid</h1> */}
                     <CssGrid />
 
-                    <h1 className="category">Responsive design</h1>
+                    {/* <h1 className="category">Responsive design</h1> */}
                     <ResponsiveDesign />
 
-                    <h1 className="category">Transitions</h1>
+                    {/* <h1 className="category">Transitions</h1> */}
                     <Transitions />
 
-                    <h1 className="category">Animations</h1>
+                    {/* <h1 className="category">Animations</h1> */}
                     <Animations />
 
-                    <h1 className="category">Advanced layout visual effects</h1>
+                    {/* <h1 className="category">Advanced layout visual effects</h1> */}
                     <AdvancedLayoutVisualEffects />
 
-                    <h1 className="category">CSS variables</h1>
+                    {/* <h1 className="category">CSS variables</h1> */}
                     <CssVariables />
 
-                    <h1 className="category">CSS architecture</h1>
+                    {/* <h1 className="category">CSS architecture</h1> */}
                     <CssArchitecture />
 
-                    <h1 className="category">Performance best practices</h1>
+                    {/* <h1 className="category">Performance best practices</h1> */}
                     <PerformanceBestPractices />
 
-                    <h1 className="category">Accessibility in css</h1>
+                    {/* <h1 className="category">Accessibility in css</h1> */}
                     <AccessibilityInCss />
 
-                    <h1 className="category">Modern css features</h1>
+                    {/* <h1 className="category">Modern css features</h1> */}
                     <ModernCssFeatures />
                 </div>
 
