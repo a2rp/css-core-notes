@@ -1,10 +1,9 @@
-// App.jsx
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { FiArrowUp } from "react-icons/fi";
 import { Styled } from "./App.styled";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import AboutCss from "./components/aboutCss";
-
 import CssFundamentals from "./components/topics/cssFundamentals";
 import WaysToApplyCss from "./components/topics/waysToApplyCss";
 import SelectorsDeepDive from "./components/topics/selectorsDeepDive";
@@ -26,85 +25,14 @@ import PerformanceBestPractices from "./components/topics/performanceBestPractic
 import AccessibilityInCss from "./components/topics/AccessibilityInCss";
 import ModernCssFeatures from "./components/topics/modernCssFeatures";
 
+const topics = [["about", "Overview", AboutCss], ["fundamentals", "CSS Fundamentals", CssFundamentals], ["apply", "Ways to Apply CSS", WaysToApplyCss], ["selectors", "Selectors", SelectorsDeepDive], ["box", "Box Model", BoxModel], ["units", "Units and Values", UnitsAndValues], ["colors", "Colors and Backgrounds", ColorsAndBackgrounds], ["type", "Typography", Typography], ["display", "Display and Visibility", DisplayAndVisibility], ["position", "Positioning", Positioning], ["flex", "Flexbox", Flexbox], ["grid", "CSS Grid", CssGrid], ["responsive", "Responsive Design", ResponsiveDesign], ["transitions", "Transitions", Transitions], ["animations", "Animations", Animations], ["effects", "Layout and Visual Effects", AdvancedLayoutVisualEffects], ["variables", "CSS Variables", CssVariables], ["architecture", "CSS Architecture", CssArchitecture], ["performance", "Performance", PerformanceBestPractices], ["accessibility", "Accessibility", AccessibilityInCss], ["modern", "Modern CSS", ModernCssFeatures]];
+
 const App = () => {
-    return (
-        <Styled.Wrapper>
-            <Styled.Header>
-                <Header />
-            </Styled.Header>
-            <Styled.Main>
-                <div className="contentWrapper">
-                    {/* about css */}
-
-                    <AboutCss />
-
-                    {/* <h1 className="category">CSS fundamentals</h1> */}
-                    <CssFundamentals />
-
-                    {/* <h1 className="category">Ways to Apply css</h1> */}
-                    <WaysToApplyCss />
-
-                    {/* <h1 className="category">Selectors deep dive</h1> */}
-                    <SelectorsDeepDive />
-
-                    {/* <h1 className="category">Box model</h1> */}
-                    <BoxModel />
-
-                    {/* <h1 className="category">Units and values</h1> */}
-                    <UnitsAndValues />
-
-                    {/* <h1 className="category">Colors and backgrounds</h1> */}
-                    <ColorsAndBackgrounds />
-
-                    {/* <h1 className="category">Typography</h1> */}
-                    <Typography />
-
-                    {/* <h1 className="category">Display and visibility</h1> */}
-                    <DisplayAndVisibility />
-
-                    {/* <h1 className="category">Positioning</h1> */}
-                    <Positioning />
-
-                    {/* <h1 className="category">Flexbox</h1> */}
-                    <Flexbox />
-
-                    {/* <h1 className="category">CSS grid</h1> */}
-                    <CssGrid />
-
-                    {/* <h1 className="category">Responsive design</h1> */}
-                    <ResponsiveDesign />
-
-                    {/* <h1 className="category">Transitions</h1> */}
-                    <Transitions />
-
-                    {/* <h1 className="category">Animations</h1> */}
-                    <Animations />
-
-                    {/* <h1 className="category">Advanced layout visual effects</h1> */}
-                    <AdvancedLayoutVisualEffects />
-
-                    {/* <h1 className="category">CSS variables</h1> */}
-                    <CssVariables />
-
-                    {/* <h1 className="category">CSS architecture</h1> */}
-                    <CssArchitecture />
-
-                    {/* <h1 className="category">Performance best practices</h1> */}
-                    <PerformanceBestPractices />
-
-                    {/* <h1 className="category">Accessibility in css</h1> */}
-                    <AccessibilityInCss />
-
-                    {/* <h1 className="category">Modern css features</h1> */}
-                    <ModernCssFeatures />
-                </div>
-
-                <div className="footerWrapper">
-                    <Footer />
-                </div>
-            </Styled.Main>
-        </Styled.Wrapper>
-    );
+    const [activeTopic, setActiveTopic] = useState("about");
+    const mainRef = useRef(null);
+    const ActiveTopic = topics.find(([id]) => id === activeTopic)?.[2] || AboutCss;
+    useEffect(() => { mainRef.current?.scrollTo({ top: 0, behavior: "auto" }); requestAnimationFrame(() => mainRef.current?.querySelector('[aria-expanded="false"]')?.click()); }, [activeTopic]);
+    return <Styled.Wrapper><Styled.Header><Header /></Styled.Header><Styled.Main ref={mainRef}><div className="workspaceLayout"><aside className="sideMenu" aria-label="CSS topics"><p className="menuLabel">Study guide</p><nav>{topics.map(([id, label]) => <button key={id} type="button" className={activeTopic === id ? "active" : ""} onClick={() => setActiveTopic(id)}>{label}</button>)}</nav></aside><section className="contentWrapper" aria-live="polite"><ActiveTopic /></section></div><button type="button" className="scrollTopButton" aria-label="Scroll content to top" title="Scroll to top" onClick={() => mainRef.current?.scrollTo({ top: 0, behavior: "smooth" })}><FiArrowUp /></button><div className="footerWrapper"><Footer /></div></Styled.Main></Styled.Wrapper>;
 };
 
 export default App;
