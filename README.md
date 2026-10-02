@@ -2,7 +2,7 @@
 
 A focused React and Vite revision workspace for CSS fundamentals, layout, responsive design, accessibility, and modern interface styling.
 
-![CSS Core Notes screenshot](screenshot.png)
+![CSS Core Notes screenshot](./screenshot.jpg)
 
 ## Features
 

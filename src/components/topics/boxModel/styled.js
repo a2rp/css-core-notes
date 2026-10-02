@@ -120,14 +120,14 @@ export const Styled = {
 
         .dMargin {
             border: 1px dashed var(--color-border-light);
-            background: rgba(78, 161, 255, 0.06);
+            background: rgba(158, 158, 158, 0.06);
             border-radius: 16px;
             padding: 14px;
         }
 
         .dBorder {
             border: 1px solid var(--color-border);
-            background: rgba(78, 161, 255, 0.08);
+            background: rgba(158, 158, 158, 0.08);
             border-radius: 14px;
             padding: 14px;
             margin-top: 10px;
@@ -135,7 +135,7 @@ export const Styled = {
 
         .dPadding {
             border: 1px solid var(--color-border);
-            background: rgba(78, 161, 255, 0.1);
+            background: rgba(158, 158, 158, 0.1);
             border-radius: 12px;
             padding: 14px;
             margin-top: 10px;
@@ -251,13 +251,13 @@ export const Styled = {
         }
 
         .callout.warn {
-            border-color: rgba(210, 153, 34, 0.45);
-            background: rgba(210, 153, 34, 0.08);
+            border-color: rgba(163, 163, 163, 0.45);
+            background: rgba(163, 163, 163, 0.08);
         }
 
         .callout.ok {
-            border-color: rgba(63, 185, 80, 0.45);
-            background: rgba(63, 185, 80, 0.08);
+            border-color: rgba(162, 162, 162, 0.45);
+            background: rgba(162, 162, 162, 0.08);
         }
 
         .calloutTitle {
