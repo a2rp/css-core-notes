@@ -22,7 +22,7 @@ import AdvancedLayoutVisualEffects from "./components/topics/advancedLayoutVisua
 import CssVariables from "./components/topics/cssVariables";
 import CssArchitecture from "./components/topics/cssArchitecture";
 import PerformanceBestPractices from "./components/topics/performanceBestPractices";
-import AccessibilityInCss from "./components/topics/AccessibilityInCss";
+import AccessibilityInCss from "./components/topics/accessibilityInCss";
 import ModernCssFeatures from "./components/topics/modernCssFeatures";
 
 const topics = [["about", "Overview", AboutCss], ["fundamentals", "CSS Fundamentals", CssFundamentals], ["apply", "Ways to Apply CSS", WaysToApplyCss], ["selectors", "Selectors", SelectorsDeepDive], ["box", "Box Model", BoxModel], ["units", "Units and Values", UnitsAndValues], ["colors", "Colors and Backgrounds", ColorsAndBackgrounds], ["type", "Typography", Typography], ["display", "Display and Visibility", DisplayAndVisibility], ["position", "Positioning", Positioning], ["flex", "Flexbox", Flexbox], ["grid", "CSS Grid", CssGrid], ["responsive", "Responsive Design", ResponsiveDesign], ["transitions", "Transitions", Transitions], ["animations", "Animations", Animations], ["effects", "Layout and Visual Effects", AdvancedLayoutVisualEffects], ["variables", "CSS Variables", CssVariables], ["architecture", "CSS Architecture", CssArchitecture], ["performance", "Performance", PerformanceBestPractices], ["accessibility", "Accessibility", AccessibilityInCss], ["modern", "Modern CSS", ModernCssFeatures]];
@@ -31,8 +31,14 @@ const App = () => {
     const [activeTopic, setActiveTopic] = useState("about");
     const mainRef = useRef(null);
     const ActiveTopic = topics.find(([id]) => id === activeTopic)?.[2] || AboutCss;
-    useEffect(() => { mainRef.current?.scrollTo({ top: 0, behavior: "auto" }); requestAnimationFrame(() => mainRef.current?.querySelector('[aria-expanded="false"]')?.click()); }, [activeTopic]);
-    return <Styled.Wrapper><Styled.Header><Header /></Styled.Header><Styled.Main ref={mainRef}><div className="workspaceLayout"><aside className="sideMenu" aria-label="CSS topics"><p className="menuLabel">Study guide</p><nav>{topics.map(([id, label]) => <button key={id} type="button" className={activeTopic === id ? "active" : ""} onClick={() => setActiveTopic(id)}>{label}</button>)}</nav></aside><section className="contentWrapper" aria-live="polite"><ActiveTopic /></section></div><button type="button" className="scrollTopButton" aria-label="Scroll content to top" title="Scroll to top" onClick={() => mainRef.current?.scrollTo({ top: 0, behavior: "smooth" })}><FiArrowUp /></button><div className="footerWrapper"><Footer /></div></Styled.Main></Styled.Wrapper>;
+    useEffect(() => {
+        mainRef.current?.scrollTo({ top: 0, behavior: "auto" });
+        const frame = requestAnimationFrame(() => {
+            mainRef.current?.querySelector('[aria-expanded="false"]')?.click();
+        });
+        return () => cancelAnimationFrame(frame);
+    }, [activeTopic]);
+    return <Styled.Wrapper><Styled.Header><Header /></Styled.Header><Styled.Main ref={mainRef}><div className="workspaceLayout"><aside className="sideMenu" aria-label="CSS topics"><p className="menuLabel">Study guide</p><nav>{topics.map(([id, label]) => <button key={id} type="button" className={activeTopic === id ? "active" : ""} aria-current={activeTopic === id ? "page" : undefined} onClick={() => setActiveTopic(id)}>{label}</button>)}</nav></aside><section className="contentWrapper"><ActiveTopic /></section></div><button type="button" className="scrollTopButton" aria-label="Scroll content to top" title="Scroll to top" onClick={() => mainRef.current?.scrollTo({ top: 0, behavior: "smooth" })}><FiArrowUp /></button><div className="footerWrapper"><Footer /></div></Styled.Main></Styled.Wrapper>;
 };
 
 export default App;

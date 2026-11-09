@@ -26,10 +26,16 @@ npm install
 npm run dev
 ```
 
-Build and deploy to GitHub Pages with:
+Run the linter and build the production bundle with:
 
 ```bash
+npm run lint
 npm run build
+```
+
+Deploy to GitHub Pages with:
+
+```bash
 npm run deploy
 ```
 
