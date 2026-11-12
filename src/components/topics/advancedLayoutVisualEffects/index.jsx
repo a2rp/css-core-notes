@@ -24,7 +24,7 @@ const AdvancedLayoutVisualEffects = () => {
                 type="button"
                 className="topicHeader"
                 onClick={toggle}
-                aria-expanded={open}
+                aria-expanded={open} aria-controls="topic-panel"
             >
                 <span className="chev">
                     {open ? <FiChevronDown /> : <FiChevronRight />}
@@ -41,7 +41,7 @@ const AdvancedLayoutVisualEffects = () => {
                 <span className="meta">{open ? "Collapse" : "Expand"}</span>
             </button>
 
-            <div className={`topicBody ${open ? "open" : ""}`}>
+            <div id="topic-panel" aria-hidden={!open} className={`topicBody ${open ? "open" : ""}`}>
                 <div className="intro">
                     <div className="pill">
                         <span className="pillIcon">
